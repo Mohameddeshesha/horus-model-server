@@ -17,6 +17,7 @@ import torch.nn as nn
 from transformers import AutoModel, AutoTokenizer
 
 from config import CHECKPOINTS, LABELS_CREDIBLE_FIRST
+from utils.checkpoint_manager import ensure_checkpoint
 
 MODEL_NAME = "aubmindlab/bert-base-arabertv02"
 MAX_LEN = 256
@@ -74,9 +75,10 @@ class AraBertRunner:
     labels = LABELS_CREDIBLE_FIRST
 
     def __init__(self, device: torch.device) -> None:
-        path = CHECKPOINTS["arabert"]
-        if not path.is_file():
-            raise FileNotFoundError(f"Checkpoint not found: {path}")
+        path = ensure_checkpoint(
+            "arabert",
+            CHECKPOINTS["arabert"],
+        )
         self.device = device
         self.tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
         self.model = AraBERTClassifier().to(device)

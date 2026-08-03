@@ -38,7 +38,7 @@ HF_TOKEN = os.environ.get("HF_TOKEN", "").strip()
 
 HF_REPOSITORY = os.environ.get(
     "HF_REPOSITORY",
-    "deshesha/ain-horus-models",
+    "deshesha/ain-horus",
 )
 
 HF_FILES = {
