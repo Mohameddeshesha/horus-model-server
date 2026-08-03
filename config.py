@@ -16,6 +16,8 @@ MODELS_DIR = Path(os.environ.get("MODELS_DIR", BASE_DIR / "models"))
 #   Authorization: Bearer <MODEL_SERVER_TOKEN>
 MODEL_SERVER_TOKEN = os.environ.get("MODEL_SERVER_TOKEN", "").strip()
 
+
+
 # Comma separated list, or "*" for any origin.
 ALLOWED_ORIGINS = [
     o.strip() for o in os.environ.get("ALLOWED_ORIGINS", "*").split(",") if o.strip()
@@ -32,7 +34,17 @@ WARMUP_TEXT = "أعلنت الحكومة اليوم عن خطة جديدة لد�
 # ---------------------------------------------------------------------------
 # Label mappings — index order is per model and MUST NOT be reordered.
 # ---------------------------------------------------------------------------
+HF_TOKEN = os.environ.get("HF_TOKEN", "").strip()
 
+HF_REPOSITORY = os.environ.get(
+    "HF_REPOSITORY",
+    "deshesha/ain-horus-models",
+)
+
+HF_FILES = {
+    "arabert": "arabert/best_arabert.pt",
+    "custom_transformer": "custom_transformer/best_model_trial6.pth",
+}
 # Arabert.ipynb   : CLASS_NAMES = ['Credible', 'Not Credible', 'Undecided']
 # Custom_Transformer.ipynb : LABEL_MAP = {"Credible":0, "Not Credible":1, "Undecided":2}
 # MBert.ipynb     : label_mapping = {"credible":0, "not credible":1, "undecided":2}
