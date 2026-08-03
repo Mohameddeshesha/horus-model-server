@@ -42,7 +42,7 @@ HF_REPOSITORY = os.environ.get(
 )
 
 HF_FILES = {
-    "arabert": "arabert/best_arabert.pt",
+    "arabert": "best_arabert.pt",
     "custom_transformer": "custom_transformer/best_model_trial6.pth",
 }
 # Arabert.ipynb   : CLASS_NAMES = ['Credible', 'Not Credible', 'Undecided']
