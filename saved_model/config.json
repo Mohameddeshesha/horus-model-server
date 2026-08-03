@@ -1,0 +1,11 @@
+{
+  "model_name": "aubmindlab/bert-base-arabertv02",
+  "hidden_dim": 256,
+  "num_classes": 3,
+  "max_len": 512,
+  "classes": [
+    "Credible",
+    "Not Credible",
+    "Undecided"
+  ]
+}
